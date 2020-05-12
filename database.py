@@ -53,15 +53,32 @@ class Player:
 
     def dump(self, letters):
         # return 1
-        #draw 3
+        # draw 3
         n = 3
         while n > 0:
+            n -= 1
             self.draw(letters)
+
+        chosen_letter = choose_letter(self.tiles)
+
+        self.tiles[chosen_letter] -= 1
+        letters[chosen_letter] += 1
+
+def choose_letter(letters): #letters that you have in hand
+    #insert routine here to choose a letter
+    print(letters)
+    letter = str(input("select a letter to dump"))
+    for let, value in letters.items():
+        if let == letter and value > 0:
+            return letter
+    else:
+        print("error, you have no such letter! try again!")
         pass
 
-
 if __name__ == '__main__':
+    #  my little test script
     new_game = Game("new_game")
     Lyndon = Player("Lyndon")
     new_game.add_player(Lyndon)
     new_game.distribute()
+    Lyndon.dump(new_game.letters)
