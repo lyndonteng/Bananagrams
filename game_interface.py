@@ -94,7 +94,7 @@ if __name__ == "__main__":
     root.title("Homebrew Bananagrams")
     game = GameBoard(root)
     game.pack(side="top", fill="both", expand="true", padx=4, pady=4)
-    game.add_player("Lyndon")
+    game.add_player(Player("Lyndon"))
     game.addpiece("z", 10, 10)
     game.addpiece("z", 5, 5)
     root.mainloop()
